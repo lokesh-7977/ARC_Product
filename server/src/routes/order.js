@@ -1,10 +1,10 @@
 import express from 'express';
-import { createOrder, getMyOrders, getOrderById, updateOrderToPaid } from '../controllers/order.js';
+import { createOrder, getOrders, getOrderById, updateOrderToPaid } from '../controllers/orderController.js';
 
 const router = express.Router();
 
 router.post('/create', createOrder);
-router.get('/myorders', getMyOrders);
+router.get('/myorders', getOrders);
 router.get('/:id', getOrderById);
 router.put('/:id/pay', updateOrderToPaid);
 

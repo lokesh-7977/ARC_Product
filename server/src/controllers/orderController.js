@@ -1,4 +1,4 @@
-import Order from "../models/order.js";
+import Order from "../models/order.js"
 
 export const createOrder = async (req, res) => {
   const { orderItems, shippingAddress, paymentMethod, itemsPrice, taxPrice, shippingPrice, totalPrice } = req.body;
