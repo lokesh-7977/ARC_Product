@@ -33,7 +33,7 @@ export const products = [
     title: "BodyCare",
     link: "https://cursor.so",
     thumbnail:
-      "/assets/bodycare.png",
+      "/assets/body.png",
     description: "Explore our range of body care products designed to nourish, rejuvenate, and protect your skin, leaving it soft, smooth, and healthy ",
   },/*2ndcard*/
   {
@@ -47,7 +47,7 @@ export const products = [
     title: "BodyCare",
     link: "https://cursor.so",
     thumbnail:
-      "/assets/bodycare.png",
+      "/assets/body.png",
     description: "Explore our range of body care products designed to nourish, rejuvenate, and protect your skin, leaving it soft, smooth, and healthy ",
   },
  {
