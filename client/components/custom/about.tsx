@@ -29,7 +29,7 @@ const about = () => {
 
     return (
       <div className="w-[30rem] h-[30rem]">
-        <Image src={images[currentImageIndex]} alt="Slideshow" />
+        <Image src={images[currentImageIndex]} alt="Slideshow" width={1000} height={1000}/>
       </div>
     );
   };
