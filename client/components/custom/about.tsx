@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import { TextGenerateEffect } from "@/components/ui/text-genrate-effect";
+import Image from "next/image"
 const about = () => {
 
   const ImageFrame = () => {
@@ -28,7 +29,7 @@ const about = () => {
 
     return (
       <div className="w-[30rem] h-[30rem]">
-        <img src={images[currentImageIndex]} alt="Slideshow" />
+        <Image src={images[currentImageIndex]} alt="Slideshow" />
       </div>
     );
   };
@@ -37,7 +38,7 @@ const about = () => {
       <div className="flex flex-col w-full max-w-2xl mx-auto pl-3 md:pl-20">
         <h1 className="text-4xl font-bold pt-5">Our Story</h1>
         <div className="text-lg font-Poppins py-7">
-        At ShopyHut, we're driven by a simple yet powerful mission: to provide
+        At ShopyHut, we &apos; re driven by a simple yet powerful mission: to provide
           sustainable solutions for everyday living. Born from a passion for
           protecting our planet, we meticulously curate eco-friendly products
           that not only support a sustainable lifestyle but also bring joy and
