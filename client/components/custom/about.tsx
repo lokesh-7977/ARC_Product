@@ -28,7 +28,7 @@ const about = () => {
     }, [images.length]);
 
     return (
-      <div className="w-[30rem] h-[30rem]">
+      <div id="about" className="w-[30rem] h-[30rem]">
         <Image src={images[currentImageIndex]} alt="Slideshow" width={1000} height={1000}/>
       </div>
     );

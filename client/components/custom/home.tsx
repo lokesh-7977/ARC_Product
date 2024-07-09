@@ -1,61 +1,43 @@
-"use client";
-import React from "react";
-import { HeroParallax } from "../ui/hero-parallax";
+"use client"
+import React from 'react';
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css"; 
+import "slick-carousel/slick/slick-theme.css";
 
-export function Home() {
-  return <HeroParallax products={products} />;
-}
-export const products = [
-    
-  {
-    title: "Clothing and Accessories",
-    link: "https://gomoonbeam.com",
-    thumbnail:
-      "/assets/clothesbefore.png",
-    description: "A generic category for clothing and accessories.",
-  },
-  {
-    title: "Home & Living",
-    link: "https://cursor.so",
-    thumbnail:
-      "/assets/home.png",
-    description: "ADiscover our Home & Living collection: eco-friendly decor, smart gadgets, and sleek furniture for a modern lifestyle",
-  },/*4th card*/
-  {
-    title: "Sustainable Food and Drink",
-    link: "https://userogue.com",
-    thumbnail:
-      "/assets/food.png",
-      description: "Eco-friendly food and drink essentials, from reusable bottles to compostable pods.",
-  },/*3rd card*/
+const Home: React.FC = () => {
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    autoplaySpeed: 1000,
+    cssEase: "linear",
+    arrows:false,
+  };
 
-  {
-    title: "BodyCare",
-    link: "https://cursor.so",
-    thumbnail:
-      "/assets/body.png",
-    description: "Explore our range of body care products designed to nourish, rejuvenate, and protect your skin, leaving it soft, smooth, and healthy ",
-  },/*2ndcard*/
-  {
-    title: "Clothing and Accessories",
-    link: "https://gomoonbeam.com",
-    thumbnail:
-      "/assets/clothesbefore.png",
-    description: "Discover our curated collection of clothing and accessories, where style meets comfort.",
-  },/*1stpic*/
-  {
-    title: "BodyCare",
-    link: "https://cursor.so",
-    thumbnail:
-      "/assets/body.png",
-    description: "Explore our range of body care products designed to nourish, rejuvenate, and protect your skin, leaving it soft, smooth, and healthy ",
-  },
- {
-    title: "Roguehhjikjokjo",
-    link: "https://userogue.com",
-    thumbnail:
-      "https://aceternity.com/images/products/thumbnails/new/rogue.png",
-    description: "A minimalist, modern, and accessible text editor.",
-  },
- 
-];
+  const banners = [
+    "/assets/banner1.png",
+    "/assets/banner2.png",
+    "/assets/banner3.png",
+  ];
+
+  
+  
+
+  return (
+    <div className='relative w-full'>
+      <Slider {...settings}>
+        {banners.map((banner, index) => (
+          <div key={index} className='w-full h-[650px]'>
+            <img src={banner} className='w-full h-full object-cover' alt={`Banner ${index + 1}`} />
+            
+          </div>
+        ))}
+      </Slider>
+    </div>
+  );
+};
+
+export default Home;

@@ -1,79 +1,43 @@
-import * as React from "react"
-
-import { cn } from "@/lib/utils"
-
-const Card = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn(
-      "rounded-lg border bg-card text-card-foreground shadow-sm",
-      className
-    )}
-    {...props}
-  />
-))
-Card.displayName = "Card"
-
-const CardHeader = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("flex flex-col space-y-1.5 p-6", className)}
-    {...props}
-  />
-))
-CardHeader.displayName = "CardHeader"
-
-const CardTitle = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLHeadingElement>
->(({ className, ...props }, ref) => (
-  <h3
-    ref={ref}
-    className={cn(
-      "text-2xl font-semibold leading-none tracking-tight",
-      className
-    )}
-    {...props}
-  />
-))
-CardTitle.displayName = "CardTitle"
-
-const CardDescription = React.forwardRef<
-  HTMLParagraphElement,
-  React.HTMLAttributes<HTMLParagraphElement>
->(({ className, ...props }, ref) => (
-  <p
-    ref={ref}
-    className={cn("text-sm text-muted-foreground", className)}
-    {...props}
-  />
-))
-CardDescription.displayName = "CardDescription"
-
-const CardContent = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div ref={ref} className={cn("p-6 pt-0", className)} {...props} />
-))
-CardContent.displayName = "CardContent"
-
-const CardFooter = React.forwardRef<
-  HTMLDivElement,
-  React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn("flex items-center p-6 pt-0", className)}
-    {...props}
-  />
-))
-CardFooter.displayName = "CardFooter"
-
-export { Card, CardHeader, CardFooter, CardTitle, CardDescription, CardContent }
+"use client";
+import { cn } from "@/utils/cn";
+import { FaArrowCircleRight } from "react-icons/fa";
+export function Card({
+  product,
+  showButton = false, // Adding a new prop for controlling button visibility
+}: {
+  product: {
+    title: string;
+    link: string;
+    thumbnail: string;
+    description: string;
+  };
+  showButton?: boolean; // This prop is optional and defaults to false
+}) {
+  return (
+    <div className="max-w-xs w-full">
+      <div
+        className="group w-full cursor-pointer overflow-hidden relative card h-96 rounded-md shadow-xl mx-auto flex flex-col justify-end p-4 border border-transparent dark:border-neutral-800"
+        style={{ backgroundImage: `url(${product.thumbnail})` }}
+      >
+        <div className="text relative z-50">
+          <h1 className="font-bold text-xl md:text-3xl text-gray-50 relative">
+            {product.title}
+          </h1>
+          <p className="font-normal text-base text-gray-50 relative my-4">
+            {product.description}
+          </p>
+          {/* Conditionally rendering the button based on showButton prop */}
+          {showButton && (
+            
+            <button className="flex px-5  py-2 bg-[#E7D4B5] text-black rounded ">
+              Read More
+              <FaArrowCircleRight className="text-black w-6 h-6 ml-5"/>
+            </button>
+            
+            
+          )}
+        </div>
+      </div>
+    </div>
+  );
+}
