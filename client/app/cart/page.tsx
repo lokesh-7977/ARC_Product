@@ -4,10 +4,11 @@ import Image from 'next/image';
 import { AiOutlineClose } from 'react-icons/ai';
 import Link from 'next/link';
 import { useMyContext } from '@/Context/CartContext'; // Adjust path as needed
+import { AuthProvider, useAuth } from '@/Context/AuthContext'; // Adjust path as needed
 import { MyContextProvider } from '@/Context/CartContext'; // Adjust path as needed
-
 const Page = () => {
   const { cart, setCart } = useMyContext();
+  const { isAuthenticated } = useAuth();
   const [counts, setCounts] = useState<number[]>([]);
 
   useEffect(() => {
@@ -37,6 +38,10 @@ const Page = () => {
     setCart({ ...cart, items: updatedItems });
     setCounts(counts.filter((_, i) => i !== index)); // Remove corresponding count
   };
+
+  if (!isAuthenticated) {
+    return null; // Render nothing if not authenticated (you can also show a loading spinner)
+  }
 
   return (
     <div className="bg-background min-h-screen w-full flex">
@@ -123,9 +128,11 @@ const Page = () => {
 
 const CartPage = () => {
   return (
+    <AuthProvider>
     <MyContextProvider>
       <Page />
     </MyContextProvider>
+    </AuthProvider>
   );
 };
 

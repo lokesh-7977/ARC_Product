@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { MyContextProvider } from "@/Context/CartContext";
+import { AuthProvider } from "@/Context/AuthContext";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -15,11 +16,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
+    <AuthProvider>
     <MyContextProvider>
     <html lang="en">
       <link rel="icon" href="/assets/favicon.ico" sizes="any" />
       <body className={inter.className}>{children}</body>
     </html>
     </MyContextProvider>
+    </AuthProvider>
   );
 }
