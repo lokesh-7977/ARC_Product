@@ -47,7 +47,7 @@ const Blogs: React.FC = () => {
       </div>
       <div className="grid grid-cols-2 md:grid-cols-4 gap-7 px-5 md:px-20 py-5 md:py-10">
         {products.map((product) => (
-         <Link href="/blog">  <Card key={product.title} product={product} showButton={true} /></Link>
+          <Card key={product.title} product={product} showButton={true} />
         ))}
       </div>
       
