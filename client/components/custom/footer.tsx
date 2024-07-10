@@ -1,52 +1,48 @@
 import React from 'react'
-import { FaInstagram, FaLinkedinIn, FaGithub, FaTwitter, FaFacebookF } from 'react-icons/fa';
-import {FaStore} from 'react-icons/fa'
+import { FaInstagram, FaLinkedinIn, FaTwitter, FaFacebookF } from 'react-icons/fa'
+import Link from 'next/link'
+
 const Footer = () => {
   return (
-    <footer className='bg-[#A0937D] h-[250px] text-3xl font-Cinzel_Decorative text-black px-5 flex flex-col w-full  items-center'>
-      <div className='flex w-full '>
-        <div className='flex justify-start pt-20 pl-4'>
-      <FaStore className='text-black pr-1 h-10 w-10 '/>
-      <div className='text-2xl font-semibold font-Cinzel_Decorative text-black pt-2'>ARC_Product</div>
-      </div>
-        <div className='flex-col justify-end ml-auto'>
-        <h3 className=' font-normal pt-10 pb-7'>Stay sustainale and Subscribe now.</h3>
-        <div className='flex w-fit pb-4 '>
-          <input type='email' placeholder='Enter your email' className='px-7 py-2 text-xl bg-white'/>
-          <button className='bg-text_black text-white px-4 py-2 text-xl '>Subscribe</button>
+    <footer className='bg-secondary_color text-background font-Cinzel_Decorative py-10'>
+      <div className='container mx-auto px-5'>
+        <div className='flex flex-col md:flex-row justify-between items-center border-b-2 border-background pb-8'>
+          <div className='flex flex-col items-center md:items-start mb-6 md:mb-0'>
+            <h3 className='text-xl md:text-3xl mb-4'>Stay sustainable and Subscribe now.</h3>
+            <div className='flex w-fit bg-white'>
+              <input type='email' placeholder='Enter your email' className='px-2 md:px-4 py-2 text-lg bg-white '/>
+              <button className='bg-background text-black px-2 md:px-4 py-2 text-lg ml-2'>Subscribe</button>
+            </div>
+          </div>
+          <div className='flex space-x-4'>
+            <Link href='https://www.instagram.com/yourInstagramHandle' target='_blank' rel='noreferrer'>
+              <FaInstagram className='h-8 w-8 hover:text-gray-700 transition duration-300'/>
+            </Link>
+            <Link href='https://www.linkedin.com/in/yourLinkedinHandle' target='_blank' rel='noreferrer'>
+              <FaLinkedinIn className='h-8 w-8 hover:text-gray-700 transition duration-300'/>
+            </Link>
+            <Link href='https://twitter.com/yourTwitterHandle' target='_blank' rel='noreferrer'>
+              <FaTwitter className='h-8 w-8 hover:text-gray-700 transition duration-300'/>
+            </Link>
+            <Link href='https://www.facebook.com/yourFacebookPage' target='_blank' rel='noreferrer'>
+              <FaFacebookF className='h-8 w-8 hover:text-gray-700 transition duration-300'/>
+            </Link>
+          </div>
         </div>
+        <div className='flex flex-col md:flex-row justify-between items-center pt-8'>
+          <div className='text-lg text-center md:text-left'>
+            &copy; {new Date().getFullYear()} All rights reserved.
+          </div>
+          <div className='flex space-x-4 mt-4 md:mt-0'>
+            <Link href='/privacy-policy' className='hover:text-gray-700 transition duration-300'>
+              Privacy Policy
+            </Link>
+            <Link href='/terms-of-service'className='hover:text-gray-700 transition duration-300'>
+             Terms of Service
+            </Link>
+          </div>
         </div>
-        </div>
-        <hr className='w-full h-[0.5px] bg-black mt-7'/>
-        <div className='flex w-full '>
-          
-        <div className='flex flex-col justify-start items-start space-x-4 md:space-x-10 pt-2'>
-          
-        <div className='text-lg'>&copy; All copyrights reserved.</div>
-        
       </div>
-      <div className='flex justify-end items-end ml-auto space-x-4 md:space-x-10 pt-2'>
-      {/* <div className=' text-center font-semibold'>
-        <h4 className=''>Connect with<span></span> Us </h4>
-      </div> */}
-        <a href='' target='_blank' rel='noreferrer' >
-          <FaInstagram className='h-6 w-6'/>
-        </a>
-        
-        <a href='' target='_blank' rel='noreferrer' >
-          <FaLinkedinIn className='h-6 w-6'/>
-        </a>
-        <a href='https://twitter.com/yourTwitterHandle' target='_blank' rel='noreferrer' >
-          <FaTwitter className='h-6 w-6'/>
-        </a>
-        <a href='https://www.facebook.com/yourFacebookPage' target='_blank' rel='noreferrer' >
-          <FaFacebookF className='h-6 w-6'/>
-        </a>
-        
-      </div>
-      </div>
-      {/* <hr className='w-full h-[0.5px] bg-black mt-5'/>
-      <div className='text-lg'>&copy; All copyrights reserved.</div> */}
     </footer>
   )
 }

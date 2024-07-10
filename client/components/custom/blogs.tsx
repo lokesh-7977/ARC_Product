@@ -2,10 +2,10 @@
 import React from "react";
 import { ThreeDCardDemo } from "../ui/threedcarddemo";
 import { Card } from "@/components/ui/card";
-
+import Link from "next/link";
 type Product = {
   title: string;
-  link: string;
+  categoryId: string;
   thumbnail: string;
   description: string;
 };
@@ -13,25 +13,25 @@ type Product = {
 export const products: Product[] = [
   {
     title: "2024 Collection",
-    link: "https://cursor.so",
+    categoryId: "https://cursor.so",
     thumbnail: "/assets/bagblog.png",
     description: "March 01",
   },
   {
     title: "Skin is our priority",
-    link: "https://userogue.com",
+    categoryId: "https://userogue.com",
     thumbnail: "/assets/skinblog.png",
     description: "July 02",
   },
   {
-    title: "Best sustainable interior designs ",
-    link: "https://cursor.so",
+    title: "Sustainable interior ",
+    categoryId: "https://cursor.so",
     thumbnail: "/assets/interiorblog.png",
     description: "June 09",
   },
   {
-    title: "Clothing in Sustainable form",
-    link: "https://gomoonbeam.com",
+    title: "Sustainable Clothing ",
+    categoryId: "https://gomoonbeam.com",
     thumbnail: "/assets/blog4.png",
     description: "Jan 01",
   },
@@ -41,13 +41,13 @@ const Blogs: React.FC = () => {
   return (
     <div id="blogs" className="flex flex-col w-full pt-20">
       <div className="flex w-full justify-center items-center">
-        <h1 className="text-6xl font-bold font-Cinzel_Decorative pl-20 text-gray-800 dark:text-gray-200">
+        <h1 className="text-6xl font-bold font-Cinzel_Decorative pl-5 md:pl-20 text-gray-800 dark:text-gray-200">
           Our Blogs
         </h1>
       </div>
-      <div className="grid grid-cols-4 gap-7 px-20 py-10">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-7 px-5 md:px-20 py-5 md:py-10">
         {products.map((product) => (
-          <Card key={product.title} product={product} showButton={true} />
+         <Link href="/blog">  <Card key={product.title} product={product} showButton={true} /></Link>
         ))}
       </div>
       

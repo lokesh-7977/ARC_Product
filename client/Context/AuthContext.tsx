@@ -26,7 +26,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
     // Simulate a login process
     localStorage.setItem('token', 'sample_token');
     setIsAuthenticated(true);
-    router.push('/cart'); // Redirect to cart page after login
+    router.push('/'); // Redirect to cart page after login
   };
 
   return (

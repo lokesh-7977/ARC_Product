@@ -1,125 +1,103 @@
 "use client";
 
-import * as React from "react";
+import React, { useState } from "react";
 import Link from "next/link";
+import { FaSearch, FaShoppingCart } from "react-icons/fa";
+import MobileNavbar from "./mobilenavbar";
 
-import { cn } from "@/lib/utils";
-import { FaSearch } from "react-icons/fa";
-import {
-  NavigationMenu,
-  NavigationMenuContent,
-  NavigationMenuItem,
-  NavigationMenuLink,
-  NavigationMenuList,
-  NavigationMenuTrigger,
-  navigationMenuTriggerStyle,
-} from "@/components/ui/navigation-menu";
-import { FaShoppingCart } from "react-icons/fa";
-const components: { title: string; href: string; description: string }[] = [
+const newLaunches = [
   {
-    title: "Alert Dialog",
-    href: "/docs/primitives/alert-dialog",
-    description:
-      "A modal dialog that interrupts the user with important content and expects a response.",
+    title: "Product 1",
+    href: "/new/product-1",
+    description: "This is the first new product.",
   },
   {
-    title: "Hover Card",
-    href: "/docs/primitives/hover-card",
-    description:
-      "For sighted users to preview content available behind a link.",
+    title: "Product 2",
+    href: "/new/product-2",
+    description: "This is the second new product.",
   },
   {
-    title: "Progress",
-    href: "/docs/primitives/progress",
-    description:
-      "Displays an indicator showing the completion progress of a task, typically displayed as a progress bar.",
+    title: "Product 3",
+    href: "/new/product-3",
+    description: "This is the third new product.",
   },
-  {
-    title: "Scroll-area",
-    href: "/docs/primitives/scroll-area",
-    description: "Visually or semantically separates content.",
-  },
-  {
-    title: "Tabs",
-    href: "/docs/primitives/tabs",
-    description:
-      "A set of layered sections of content—known as tab panels—that are displayed one at a time.",
-  },
-  {
-    title: "Tooltip",
-    href: "/docs/primitives/tooltip",
-    description:
-      "A popup that displays information related to an element when the element receives keyboard focus or the mouse hovers over it.",
-  },
+  // Add more products as needed
 ];
 
 export function Navbar() {
+  const [searchOpen, setSearchOpen] = useState(false);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const toggleSearch = () => {
+    setSearchOpen(!searchOpen);
+  };
+
+  const handleSearchChange = (e:any) => {
+    setSearchTerm(e.target.value);
+  };
+
+  const filteredProducts = newLaunches.filter((product) =>
+    product.title.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   return (
-    <div className="flex z-50 bg-background w-full h-fit border-b-[0.5px] border-secondary_color justify-between px-10 py-4   ">
+    <div className="flex z-50 bg-background w-full h-fit border-b-[0.5px] border-secondary_color justify-between px-10 py-4">
       <Link href="/" className="">
         <div className="text-2xl font-semibold font-Cinzel_Decorative text-secondary_color pt-2">
-          ARC_Product
+          ARC
         </div>
       </Link>
-      <div className="pt-2 flex justify-between gap-10 text-text_black">
-        <Link href="#new" className="hover:text-secondary_color font-Poppins">
+
+      <div className="pt-2 hidden md:flex justify-between gap-10 text-text_black">
+        <Link href="/#new" className="hover:text-secondary_color font-Poppins">
           New
         </Link>
         <Link href="/" className="hover:text-secondary_color font-Poppins">
           Featured Product
         </Link>
-        <Link href="#blogs" className="hover:text-secondary_color font-Poppins">
+        <Link href="/#blogs" className="hover:text-secondary_color font-Poppins">
           Blogs
         </Link>
         <Link href="/" className="hover:text-secondary_color font-Poppins">
           Offers
         </Link>
-        <Link href="#about" className="hover:text-secondary_color font-Poppins">
+        <Link href="/#about" className="hover:text-secondary_color font-Poppins">
           About Us
         </Link>
       </div>
-      <div className="flex gap-5  ">
-      <Link href="/">
-          <button className="bg-transparent  text-black px-5 py-3 h-fit  font-Poppins align-middle  flex justify-center text-nowrap">
-            <FaSearch className="w-5 h-5 mr-2 text-secondary_color" />
-            Search
-          </button>
-        </Link>
+      <div className="hidden md:flex gap-5">
+        <button
+          className="bg-transparent text-black px-5 py-3 h-fit font-Poppins align-middle flex justify-center text-nowrap"
+          onClick={toggleSearch}
+        >
+          <FaSearch className="w-5 h-5 mr-2 text-secondary_color" />
+          Search
+        </button>
         <Link href="/cart">
-          <button className="bg-transparent  text-black px-5 py-3 h-fit  font-Poppins align-middle  flex justify-center text-nowrap">
+          <button className="bg-transparent text-black px-5 py-3 h-fit font-Poppins align-middle flex justify-center text-nowrap">
             <FaShoppingCart className="w-5 h-5 mr-2 text-secondary_color" />
             Your Cart
           </button>
         </Link>
-        
-        
       </div>
+      <MobileNavbar />
+      {searchOpen && (
+        <div className="w-full z-50 mt-10 bg-white shadow-md p-4 absolute top-16 left-0">
+          <div className="flex pl-5">
+          <FaSearch className="w-5 h-5 mt-[9px] mr-1 text-black" />
+          <input
+            type="text"
+            value={searchTerm}
+            onChange={handleSearchChange}
+            className="w-full p-2 "
+            placeholder="Search..."
+          />
+          </div>
+          
+        </div>
+      )}
     </div>
   );
 }
 
-const ListItem = React.forwardRef<
-  React.ElementRef<"a">,
-  React.ComponentPropsWithoutRef<"a">
->(({ className, title, children, ...props }, ref) => {
-  return (
-    <li>
-      <NavigationMenuLink asChild>
-        <a
-          ref={ref}
-          className={cn(
-            "block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground",
-            className
-          )}
-          {...props}
-        >
-          <div className="text-sm font-medium leading-none">{title}</div>
-          <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
-            {children}
-          </p>
-        </a>
-      </NavigationMenuLink>
-    </li>
-  );
-});
-ListItem.displayName = "ListItem";
+export default Navbar;

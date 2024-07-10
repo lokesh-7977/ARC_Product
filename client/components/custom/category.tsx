@@ -1,8 +1,9 @@
 import React from 'react'
-import { Card } from '../ui/card';
+import {Card} from '@/components/ui/card';
+import Link from 'next/link';
 type Product = {
     title: string;
-    link: string;
+    categoryId: string;
     thumbnail: string;
     description: string;
   };
@@ -10,25 +11,25 @@ type Product = {
   export const products: Product[] = [
     {
       title: "Home & Living",
-      link: "https://cursor.so",
+      categoryId: "Homeliving",
       thumbnail: "/assets/home.png",
       description: "Discover our Home & Living collection: eco-friendly decor, smart gadgets, and sleek furniture for a modern lifestyle",
     },
     {
-      title: "Sustainable Food and Drink",
-      link: "https://userogue.com",
+      title: "Sustainable Food Packaging",
+      categoryId: "SustainableFoodPackaging",
       thumbnail: "/assets/food.png",
       description: "Eco-friendly food and drink essentials, from reusable bottles to compostable pods.",
     },
     {
       title: "BodyCare",
-      link: "https://cursor.so",
+      categoryId: "BodyCare",
       thumbnail: "/assets/body.png",
       description: "Explore our range of body care products designed to nourish, rejuvenate, and protect your skin, leaving it soft, smooth, and healthy",
     },
     {
       title: "Clothing and Accessories",
-      link: "https://gomoonbeam.com",
+      categoryId: "ClothingandAccessories",
       thumbnail: "/assets/clothesbefore.png",
       description: "Discover our curated collection of clothing and accessories, where style meets comfort.",
     },
@@ -41,9 +42,13 @@ const category = () => {
           Shop by Categories
         </h1>
       </div>
-      <div className="grid grid-cols-4 gap-7 px-20 py-10">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-7 px-2 md:px-20 py-10">
         {products.map((product) => (
-          <Card key={product.title} product={product} />
+         <Link key={product.categoryId} href={`/category/${product.categoryId}`}>
+         
+           <Card key={product.title} product={product} />
+        
+       </Link>
         ))}
       </div>
       </div>

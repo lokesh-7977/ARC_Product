@@ -58,7 +58,7 @@ const Newlaunches: React.FC = () => {
         New Launches
       </h1>
       
-      <div className="grid grid-cols-4  gap-5  w-fullc px-5">
+      <div className="grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-5  w-full px-5">
       {cardData.slice(0, viewAll ? undefined : 4).map((card, index) => (
           <ThreeDCardDemo key={card.title} card={card} />
         ))}
