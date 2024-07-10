@@ -31,7 +31,7 @@ const Home: React.FC = () => {
       <Slider {...settings}>
         {banners.map((banner, index) => (
           <div key={index} className='w-full h-[650px]'>
-            <Image src={banner} className='w-full h-full object-cover' alt={`Banner ${index + 1}`} />
+            <Image src={banner} className='w-full h-full object-cover' alt={`Banner ${index + 1}`} width={1000} height={1000}/>
             
           </div>
         ))}
