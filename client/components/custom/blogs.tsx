@@ -1,7 +1,7 @@
 "use client";
 import React from "react";
 import { ThreeDCardDemo } from "../ui/threedcarddemo";
-import { Card } from "@/components/ui/card";
+import { Card } from "@/components/ui/cardone";
 import Link from "next/link";
 type Product = {
   title: string;

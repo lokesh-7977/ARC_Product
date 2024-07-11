@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Link from "next/link";
 import { FaSearch, FaShoppingCart } from "react-icons/fa";
 import MobileNavbar from "./mobilenavbar";
-
+import { useMyContext } from "@/Context/CartContext";
 const newLaunches = [
   {
     title: "Product 1",
@@ -25,6 +25,7 @@ const newLaunches = [
 ];
 
 export function Navbar() {
+  const { cart } = useMyContext();
   const [searchOpen, setSearchOpen] = useState(false);
   const [searchTerm, setSearchTerm] = useState("");
 
@@ -74,10 +75,16 @@ export function Navbar() {
           Search
         </button>
         <Link href="/cart">
-          <button className="bg-transparent text-black px-5 py-3 h-fit font-Poppins align-middle flex justify-center text-nowrap">
-            <FaShoppingCart className="w-5 h-5 mr-2 text-secondary_color" />
-            Your Cart
-          </button>
+        <button className="bg-transparent text-black px-5 py-3 h-fit font-Poppins align-middle flex justify-center text-nowrap relative">
+          <FaShoppingCart className="w-5 h-5 mr-2 text-[#9D4439]" />
+          {cart.items.length > 0 && (
+            <span className="absolute top-0 left-0 inline-flex items-center justify-center px-2 py-1 text-xs font-bold leading-none text-red-100 bg-secondary_color rounded-full">
+              {cart.items.length}
+            </span>
+          )}
+          Your Cart
+          
+        </button>
         </Link>
       </div>
       <MobileNavbar />

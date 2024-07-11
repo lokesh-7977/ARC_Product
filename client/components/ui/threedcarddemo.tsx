@@ -1,9 +1,11 @@
 import Image from "next/image";
 import React from "react";
+import Swal from "sweetalert2";
 import { CardBody, CardContainer, CardItem } from "../ui/3d-card";
 import { useMyContext } from "@/Context/CartContext";
 import { useAuth } from "@/Context/AuthContext";
 import { useRouter } from "next/navigation";
+
 export function ThreeDCardDemo({
   card,
 }: {
@@ -19,7 +21,16 @@ export function ThreeDCardDemo({
 
   function addtoCart() {
     if (!isAuthenticated) {
-      router.push('/login');
+      Swal.fire({
+        icon: 'warning',
+        title: 'Please login first',
+        showConfirmButton: true,
+        confirmButtonText: 'Login',
+      }).then((result) => {
+        if (result.isConfirmed) {
+          router.push('/login');
+        }
+      });
       return;
     }
 
@@ -27,9 +38,18 @@ export function ThreeDCardDemo({
       ...cart,
       items: [...cart.items, card],
     };
-    console.log('Adding to cart:', card);
-    console.log('Cart after adding:', newCart);
     setCart(newCart);
+
+    Swal.fire({
+      icon: 'success',
+      title: 'Item added to cart',
+      showConfirmButton: true,
+      confirmButtonText: 'Go to Cart',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        router.push('/cart');
+      }
+    });
   }
 
   return (
