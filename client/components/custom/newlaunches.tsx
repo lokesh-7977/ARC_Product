@@ -30,22 +30,22 @@ const Newlaunches: React.FC = () => {
         image:"/assets/bodywash.png",
       },
       {
-        title: "Bamboo Toothbrush",
+        title: "Toothbrush",
         price: 30,
         image:"/assets/toothbrush.png",
       },
       {
-        title: "Bamboo Toothbrush",
+        title: "Toothbrush",
         price: 30,
         image:"/assets/toothbrush.png",
       },
       {
-        title: "Bamboo Toothbrush",
+        title: "Toothbrush",
         price: 30,
         image:"/assets/toothbrush.png",
       },
       {
-        title: "Bamboo Toothbrush",
+        title: "Toothbrush",
         price: 30,
         image:"/assets/toothbrush.png",
       },

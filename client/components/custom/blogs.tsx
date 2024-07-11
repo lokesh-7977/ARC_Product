@@ -39,7 +39,7 @@ export const products: Product[] = [
 
 const Blogs: React.FC = () => {
   return (
-    <div id="blogs" className="flex flex-col w-full pt-20">
+    <div id="blogs" className="flex flex-col w-full pt-5 md:pt-20">
       <div className="flex w-full justify-center items-center">
         <h1 className="text-6xl font-bold font-Cinzel_Decorative pl-5 md:pl-20 text-gray-800 dark:text-gray-200">
           Our Blogs
