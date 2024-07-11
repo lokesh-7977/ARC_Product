@@ -43,7 +43,7 @@ export function Navbar() {
 
   return (
     <div className="flex z-50 bg-background w-full h-fit border-b-[0.5px] border-secondary_color justify-between px-10 py-4">
-      <Link href="/" className="">
+      <Link href="/" className="hidden md:flex">
         <div className="text-2xl font-semibold font-Cinzel_Decorative text-secondary_color pt-2">
           ARC
         </div>

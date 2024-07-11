@@ -20,7 +20,7 @@ export function Card({
         className="group w-full cursor-pointer overflow-hidden relative card h-60 md:h-96 rounded-md shadow-xl mx-auto flex flex-col justify-end p-4 border border-transparent dark:border-neutral-800"
         style={{ backgroundImage: `url(${product.thumbnail})` }}
       >
-        <div className="text relative z-50 h-40">
+        <div className="text relative z-30 h-40">
           <h1 className="font-bold text-xl md:text-3xl text-gray-50 relative">
             {product.title}
           </h1>

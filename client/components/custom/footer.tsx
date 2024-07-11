@@ -9,9 +9,9 @@ const Footer = () => {
         <div className='flex flex-col md:flex-row justify-between items-center border-b-2 border-background pb-8'>
           <div className='flex flex-col items-center md:items-start mb-6 md:mb-0'>
             <h3 className='text-xl md:text-3xl mb-4'>Stay sustainable and Subscribe now.</h3>
-            <div className='flex w-fit bg-white'>
-              <input type='email' placeholder='Enter your email' className='px-2 md:px-4 py-2 text-lg bg-white '/>
-              <button className='bg-background text-black px-2 md:px-4 py-2 text-lg ml-2'>Subscribe</button>
+            <div className='flex w-fit bg-white '> 
+              <input type='email' placeholder='Enter your email' className='px-[2px] md:px-4 py-2 text-lg bg-white '/>
+              <button className='bg-background text-black px-[2px] md:px-4 py-2 text-lg ml-2'>Subscribe</button>
             </div>
           </div>
           <div className='flex space-x-4'>

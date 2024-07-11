@@ -53,7 +53,7 @@ export function ThreeDCardDemo({
   }
 
   return (
-    <div className="my-10 bg-white flex flex-col h-[16rem] md:h-[30rem]">
+    <div className="my-10 bg-white flex flex-col h-[12rem] md:h-[30rem]">
       <div className="h-[70%]">
   <Image
     src={card.image}
@@ -79,13 +79,13 @@ export function ThreeDCardDemo({
           {card.price} Rs
         </div>
         
-        <div className="flex justify-center items-center pt-2">
+        <div className="flex justify-center items-center pt-0 md:pt-2">
     <button
       className="relative bottom-0  px-2 md:px-14 py-1 md:py-3 w-72 bg-black hover:bg-white border-2 border-black text-white hover:text-black flex items-center justify-center overflow-hidden hover-transition"
       onClick={addtoCart}
     >
       <span className="button-content flex items-center">
-        <FaShoppingCart className="w-5 h-5 mr-2" />
+        <FaShoppingCart className="w-5 h-5 mr-1 md:mr-2" />
         Add to Cart →
       </span>
     </button>
