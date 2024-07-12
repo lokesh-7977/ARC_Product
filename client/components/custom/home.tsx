@@ -11,9 +11,9 @@ import {
 
 export default function Banner() {
   const banners = [
-    { imageUrl: "https://neemans.com/cdn/shop/files/Web-Banner_The-Comfornauts_DF_050724_x1360.jpg?v=1720162345" },
-    { imageUrl: "https://neemans.com/cdn/shop/files/Desktop01_524c50e4-741c-4252-a4ac-6125963c41e6_x1360.jpg?v=1719215440" },
-    { imageUrl: "https://neemans.com/cdn/shop/files/Desktop02_39d5b43a-0417-42ec-affc-c9ecc1df5779_x1360.jpg?v=1719215554" },
+    { imageUrl: "/assets/banner1.png" },
+    { imageUrl: "/assets/banner2.png" },
+    { imageUrl: "/assets/banner3.png" },
   ];
 
   return (
