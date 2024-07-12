@@ -13,10 +13,10 @@ const MobileNavbar = () => {
     <div id="navbar" className="top-0 left-0 right-0 bg-background w-full flex z-50 md:hidden">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="justify-start fixed top-7 mt-7 z-50"
+        className="justify-start  top-7  z-50"
       >
         {isOpen ? (
-          <XIcon className="h-8 w-8 text-secondary_color ml-36 transition-transform duration-500 transform rotate-180" />
+          <XIcon className="h-8 w-8 fixed text-secondary_color ml-36 transition-transform duration-500 transform rotate-180" />
         ) : (
           <MenuIcon className="h-8 w-8 text-secondary_color transition-transform duration-500" />
         )}

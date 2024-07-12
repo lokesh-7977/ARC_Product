@@ -32,7 +32,7 @@ export function Card({
             
             <button className="flex px-2 md:px-5 py-0 md:py-2 bg-[#E7D4B5] text-black rounded ">
               Read More
-              <Link href="/blog"> <FaArrowCircleRight className="text-black w-6 h-6 ml-5"/></Link>
+              <Link href="/blog" className="pt-3 md:pt-0"> <FaArrowCircleRight className="text-black w-6 h-6 ml-5"/></Link>
             </button>
             
             

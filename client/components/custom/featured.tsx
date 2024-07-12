@@ -6,7 +6,7 @@ const Featured = () => {
   return (
     <div className="w-full min-h-screen px-10 py-7">
       <div className="flex w-full justify-center items-center py-7">
-        <h1 className="text-6xl font-bold font-Cinzel_Decorative pl-5 md:pl-20 text-gray-800 dark:text-gray-200">
+        <h1 className="text-3xl md:text-6xl font-bold font-Cinzel_Decorative pl-5 md:pl-20 text-gray-800 dark:text-gray-200">
           Featured Products
         </h1>
       </div>
