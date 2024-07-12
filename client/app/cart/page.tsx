@@ -5,10 +5,8 @@ import { AiOutlineClose } from "react-icons/ai";
 import Link from "next/link";
 import { useMyContext } from "@/Context/CartContext";
 import { AuthProvider, useAuth } from "@/Context/AuthContext";
-import { MyContextProvider } from "@/Context/CartContext";
 import { FaArrowAltCircleLeft } from "react-icons/fa";
 
-const CART_STORAGE_KEY = "cartItems";
 const DELIVERY_FEE = 200;
 
 const CartPage = () => {
@@ -17,7 +15,7 @@ const CartPage = () => {
   const [counts, setCounts] = useState<number[]>([]);
 
   useEffect(() => {
-    const storedCartItems = localStorage.getItem(CART_STORAGE_KEY);
+    const storedCartItems = localStorage.getItem("cartItems");
     if (storedCartItems) {
       const parsedCartItems = JSON.parse(storedCartItems);
       setCart({ items: parsedCartItems });
@@ -27,7 +25,7 @@ const CartPage = () => {
 
   useEffect(() => {
     if (cart.items.length > 0) {
-      localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(cart.items));
+      localStorage.setItem("cartItems", JSON.stringify(cart.items));
       setCounts(cart.items.map(() => 1));
     }
   }, [cart.items]);
@@ -66,14 +64,14 @@ const CartPage = () => {
   }
 
   return (
-    <div className="w-full min-h-screen bg-background flex flex-col md:flex-row ">
-      <div className="flex flex-col pl-10 ">
+    <div className="w-full min-h-screen bg-background flex flex-col md:flex-row">
+      <div className="flex flex-col pl-10">
         <Link href="/" className="flex text-xl font-Poppins font-bold pt-10 pb-20 md:pb-0">
           <FaArrowAltCircleLeft className="h-10 w-10" />
           <span className="pt-1 pl-3">Go Back Home</span>
         </Link>
         <div className="justify-start">
-          <h1 className="text-4xl font-semibold pt-20 pl-0 md:pl-16 ">Cart</h1>
+          <h1 className="text-4xl font-semibold pt-20 pl-0 md:pl-16">Cart</h1>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-7 md:gap-0 px-2 md:px-10 py-7">
             {cart.items.length === 0 ? (
               <div>Your cart is empty.</div>
@@ -89,7 +87,7 @@ const CartPage = () => {
                   </div>
                   <div className="w-full h-[30%] pl-10 pt-3">
                     <div className="text-xl text-black font-Cinzel_Decorative font-semibold">{item.title}</div>
-                    <div className="w-full hidden ">
+                    <div className="w-full hidden">
                       <button className="minus-btn" onClick={() => handleMinusClick(index)}>
                         -
                       </button>
