@@ -8,23 +8,24 @@ import Marquee from '@/components/custom/marquee'
 import Blogs from '@/components/custom/blogs'
 import Category from '@/components/custom/category'
 import Featured from '@/components/custom/featured'
-
+import { AuthProvider } from "@/Context/AuthContext";
 const page = () => {
   return (
-    
+    <AuthProvider>
     <div className='min-h-screen w-full bg-background '>
       <Marquee/>
       <Navbar/>
-      <div className="bg-grid-black/[0.2]">
+      < div className="bg-grid-black/[0.2]">
       <Home/>
       <Category/>
-      <Newlaunches/>
+      <Newlaunches />
       <Featured/>
       <Blogs/>
       <About/>
       <Footer/>
       </div>
     </div>
+    </AuthProvider>
    
   )
 }
